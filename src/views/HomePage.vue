@@ -25,13 +25,11 @@
             </div>
     
             <div class="social-icons">
-                ________
                     <div v-for="social in socials" :key="social.id">
                         <a :href="social.link" target="_blank">
                         <i :class="social.icon"></i>
                         </a>
                     </div>
-                ________
             </div>
         </div>
     
@@ -325,8 +323,7 @@ onUnmounted(() => {
 
 .social-icons {
     display: flex;
-    justify-content: middle;
-    padding-top: 80%;
+    padding-top: 20%;
     gap: 1rem;
     color: rgba(255, 255, 255, 0.85);
 
