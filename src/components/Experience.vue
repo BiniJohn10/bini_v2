@@ -1,16 +1,35 @@
 <template>
-    <div v-for="(item, index) in experience" :key="index" class="content font-sans">
-        <p class="text-sm">{{ item.date }}</p>
-        <h3 class="font-semibold ">{{ item.title }} | <span class="">{{ item.company }}</span></h3>
-        <p class="text-sm leading-6">{{ item.description }}</p>
+    <div v-if="!props.mobile" class="">
+        <div v-for="(item, index) in experience" :key="index" class="content font-sans">
+            <p class="text-sm">{{ item.date }}</p>
+            <h3 class="font-semibold ">{{ item.title }} | <span class="">{{ item.company }}</span></h3>
+            <p class="text-sm leading-6">{{ item.description }}</p>
+        </div>
+    </div>
+    <div v-else class="">
+        <h2 class="text-2xl font-bold pt-10 pb-4">EXPERIENCE</h2>
+        <div v-for="(item, index) in experience" :key="index" class="mobile-content font-sans">
+            <p class="text-md">{{ item.date }}</p>
+            <h3 class="font-semibold text-lg">{{ item.title }} | <span class="">{{ item.company }}</span></h3>
+            <p class="leading-6">{{ item.description }}</p>
+        </div>
     </div>
 </template>
 
 <script setup>
+
+const props = defineProps({
+    mobile: {
+        type: Boolean,
+        default: false
+    }
+});
+
+console.log('mobile prop:', props);
 const experience = [
     {
         company: 'Datamango',
-        title: 'Front End Developer',
+        title: 'Developer',
         date: '2023 - PRESENT',
         description: 'Responsible for managing the full development lifecycle at Datamango, including the design, testing, and deployment of web and mobile applications. Designed wireframes in Figma to enhance usability and visual consistency. Built and deployed a cross-platform mobile application using Vue3, Ionic, and Capacitor within five months. Conducted end-to-end testing with Cypress to ensure high-quality, bug-free releases. Created and managed technical documentation to support onboarding and collaboration, and developed an Excel-based timesheet system to improve project tracking and resource allocation.'
     },
@@ -47,7 +66,7 @@ const experience = [
 }
 
 .content:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     border-radius: 8pt;
     transition: all 0.3s ease-in;
 }
@@ -55,5 +74,12 @@ const experience = [
 .content:hover > h3 {
     color: #64ffda;
     transition: all 0.3s ease-in;
+}
+
+.mobile-content {
+    line-height: 1.8;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    padding-bottom: 2rem;
 }
 </style>

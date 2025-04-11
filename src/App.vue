@@ -31,4 +31,10 @@ const handleTabChange = (tab) => {
   background: linear-gradient(to bottom, #064e3b, #002a2a); /* teal-dark to black */
   min-height: 100vh;
 }
+
+@media (max-width: 768px) {
+  .bg-gradient {
+    background: linear-gradient(to left, #064e3b, #002a2a); /* teal-dark to black */
+  }
+}
 </style>

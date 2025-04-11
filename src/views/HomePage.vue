@@ -1,5 +1,5 @@
 <template>
-    <div class="layout">
+    <div v-if="!mobile" class="layout">
         <div class="sidebar font-sans lg:pl-40 pt-28 pl-28" @wheel="handleSidebarScroll">
             <div class="text-white">
             <h1 class="font-bold lg:text-5xl md:text-4xl text-3xl">Binitha John</h1>
@@ -24,12 +24,14 @@
             </ul>
             </div>
     
-            <div class="social-icons">________
-            <div v-for="social in socials" :key="social.id">
-                <a :href="social.link" target="_blank" aria-label="GitHub">
-                <i :class="social.icon"></i>
-                </a>
-            </div>________
+            <div class="social-icons">
+                ________
+                    <div v-for="social in socials" :key="social.id">
+                        <a :href="social.link" target="_blank">
+                        <i :class="social.icon"></i>
+                        </a>
+                    </div>
+                ________
             </div>
         </div>
     
@@ -93,24 +95,127 @@
             </section>
         </main>
     </div>
+
+    <!-- Mobile View -->
+    <div v-if="mobile" class="w-full p-4" :style="{ boxShadow: hasScrolled ? '0 4px 6px rgba(0, 128, 128, 0.2)' : '' }">
+        <div class="flex justify-between items-center">
+            <!-- Logo/Name Area -->
+            <div class="font-sans p-4">
+                <div class="text-white">
+                    <h1 class="font-bold text-4xl">Binitha John</h1>
+                    <p class="text-lg opacity-85">Front End Developer</p>
+                    <span class="text-sm opacity-85 flex items-center"> United Kingdom
+                        <img src="/icons/location.svg" class="w-5 h-5 ml-1" alt="Location icon"/>
+                    </span>
+
+                    <div class="flex gap-4 my-8 text-white opacity-85">
+                        <div v-for="social in socials" :key="social.id">
+                            <a :href="social.link" target="_blank" class="text-2xl">
+                            <i :class="social.icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <main ref="mainContent" class="content font-sans">
+                    <div
+                    id="about"
+                    class="content-section"
+                    :ref="setSectionRef"
+                    >
+                    <p>
+                        Hey, I'm Bini, I'm passionate about learning and creating awesome
+                        web and mobile apps. While I’ve been honing my skills for the past
+                        few years, I’m excited to continue growing and tackling new
+                        challenges.
+                    </p>
+                    <p class="pt-4">I’m a Front-End Developer at 
+                        <a class="dm cursor-pointer font-bold" href="https://datamango.io/" target="_blank">
+                        <span>D</span><span>a</span><span>t</span><span>a</span><span>m</span><span>a</span><span>n</span><span>g</span><span>o</span>
+                        </a>, 
+                        where I contribute to building responsive web and mobile applications 
+                        using modern frameworks like Vue3 and Ionic. I work across the development 
+                        lifecycle—from interface design and prototyping in Figma to testing and writing 
+                        clear documentation to support collaboration and onboarding.</p>
+            
+                    <p class="pt-4">My background includes experience in consulting, academia, and IT services, 
+                        where I’ve led projects, improved internal processes, and developed solutions 
+                        that support both users and teams. I enjoy learning, refining how things work, 
+                        and being part of a team that values quality and impact.</p>
+
+                    <p class="pt-4">Outside of tech, I love to cook, bake, and unwind with a good book (especially murder mysteries!). 
+                        I’m also a huge 
+                        <a 
+                            class="dm cursor-pointer font-bold" 
+                            href="https://www.doctorwho.tv/" 
+                            target="_blank" 
+                            @mouseover="showGif = true" 
+                            @mouseleave="showGif = false">
+                            <span>D</span><span>o</span><span>c</span><span>t</span><span>o</span><span>r</span> <span>W</span><span>h</span><span>o</span>
+                        </a>, 
+                        fan — science fiction, adventure, a lot of time travel? What’s not to love!
+                    </p>
+                    
+                    </div>
+                    <div v-if="showGif" class="doctor-who-gif">
+                        <img src="/src/assets/docwho.gif" alt="Doctor Who Gif" />
+                    </div>
+                    <section id="resume" :ref="setSectionRef">
+                    <Experience :mobile="true"/>
+                    </section>
+            
+                    <section id="projects" :ref="setSectionRef">
+                    <Projects :mobile="true" />
+                    </section>
+
+                    <section id="skills" :ref="setSectionRef">
+                        <Skills :mobile="true"/>
+                    </section>
+
+                    <section id="review" :ref="setSectionRef">
+                        <Review :mobile="true"/>
+                    </section>
+                </main>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import Experience from '../components/Experience.vue'
-import Projects from '../components/Projects.vue'
-import Skills from '../components/Skills.vue'
-import Review from '../components/Review.vue'
+import { ref, onMounted, onBeforeUnmount, onUnmounted } from 'vue';
+import Experience from '../components/Experience.vue';
+import Projects from '../components/Projects.vue';
+import Skills from '../components/Skills.vue';
+import Review from '../components/Reviews.vue';
 
-const showGif = ref(false)
-const hoveredSection = ref(null);
+const showGif = ref(false);
+const mobile = ref(false);
+const mobileNav = ref(false);
+const hasScrolled = ref(false);
+
+const toggleMobileNav = () => {
+    mobileNav.value = !mobileNav.value;
+};
+
+const handleMobileTabClick = (tab) => {
+    handleTabClick(tab);
+    mobileNav.value = false;
+};
+
+const checkScreen = () => {
+    mobile.value = window.innerWidth <= 768;
+};
+
+const handleScroll = () => {
+    hasScrolled.value = window.scrollY > 0;
+};
 
 const sections = [
     { id: 'about', label: 'ABOUT', icon: '/icons/location.svg' },
     { id: 'resume', label: 'EXPERIENCE', icon: '/icons/location.svg' },
     { id: 'projects', label: 'PROJECTS', icon: '/icons/location.svg' },
     { id: 'skills', label: 'SKILLS', icon: '/icons/location.svg' },
-    { id: 'review', label: 'REVIEW', icon: '/icons/location.svg' },
+    { id: 'review', label: 'REVIEWS', icon: '/icons/location.svg' },
     // { id: 'education', label: 'EDUCATION' },
     // { id: 'interests', label: 'INTERESTS' },
     // { id: 'hobbies', label: 'HOBBIES' },
@@ -159,6 +264,17 @@ const handleSidebarScroll = (e) => {
     }
     e.preventDefault();
 };
+
+onMounted(() => {
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', checkScreen);
+    window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <style scoped>

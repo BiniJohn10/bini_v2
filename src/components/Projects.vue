@@ -1,5 +1,6 @@
 <template>
-  <div v-for="(item, index) in projects" :key="index" class="content font-sans">
+  <div v-if="!props.mobile">
+    <div v-for="(item, index) in projects" :key="index" class="content font-sans">
       
       <a :href="item.link" target="_blank" class="grid grid-cols-4 gap-4 hover:text-b-teal-100 hover:cursor-pointer hover:opacity-100 project-img">
           <img class="text-sm leading-6 col-span-1 w-42 h-28 pt-2" :src="item.img" /> 
@@ -11,11 +12,37 @@
               </div>
               <p class="text-sm text-white opacity-85">{{ item.description }}</p>
           </div>
-      </a>
+        </a>
+    </div>
   </div>
+
+  <div v-else class="">
+    <h2 class="text-2xl font-bold pt-10 pb-4">PROJECTS</h2>
+    <div v-for="(item, index) in projects" :key="index" class="mobile-content font-sans">
+      <p class="text-xl font-semibold">{{ item.title }}</p>
+      <a :href="item.link" target="_blank" class="">
+          <img class="text-sm leading-6 col-span-1 w-[100%] h-[50%] py-2" :src="item.img" /> 
+          <div class="leading-6 col-span-3 pt-0">
+              <p class="text-md text-white opacity-85">{{ item.description }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"/>
+              </svg>
+              </p>
+              
+          </div>
+      </a>
+    </div>
+  </div>
+
 </template>
 
 <script setup>
+const props = defineProps({
+    mobile: {
+        type: Boolean,
+        default: false
+    }
+});
 const projects = [
   {
       img: 'src/assets/projects/dm.jpg',
@@ -55,7 +82,7 @@ const projects = [
 }
 
 .content:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   border-radius: 8pt;
   transition: all 0.3s ease-in-out;
 }
@@ -74,5 +101,12 @@ const projects = [
   filter: grayscale(0%);
   transition: all 0.3s ease-in-out;
   color: #64ffda;
+}
+
+.mobile-content {
+    line-height: 1.8;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    padding-bottom: 2rem;
 }
 </style>
