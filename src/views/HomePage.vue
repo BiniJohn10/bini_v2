@@ -76,19 +76,19 @@
             <div v-if="showGif" class="doctor-who-gif">
                 <img src="/src/assets/docwho.gif" alt="Doctor Who Gif" />
             </div>
-            <section id="resume" class="content-section pt-[5.6rem]" :ref="setSectionRef">
+            <section id="resume" class="pt-[5.6rem]" :ref="setSectionRef">
             <Experience />
             </section>
     
-            <section id="projects" class="content-section pt-[5.6rem]" :ref="setSectionRef">
+            <section id="projects" class="pt-[5.6rem]" :ref="setSectionRef">
             <Projects />
             </section>
 
-            <section id="skills" class="content-section pt-[5.6rem]" :ref="setSectionRef">
+            <section id="skills" class="pt-[5.6rem]" :ref="setSectionRef">
                 <Skills/>
             </section>
 
-            <section id="review" class="content-section pt-[5.6rem]" :ref="setSectionRef">
+            <section id="review" class="pt-[5.6rem]" :ref="setSectionRef">
                 <Review/>
             </section>
         </main>
@@ -214,16 +214,12 @@ const sections = [
     { id: 'projects', label: 'PROJECTS', icon: '/icons/location.svg' },
     { id: 'skills', label: 'SKILLS', icon: '/icons/location.svg' },
     { id: 'review', label: 'REVIEWS', icon: '/icons/location.svg' },
-    // { id: 'education', label: 'EDUCATION' },
-    // { id: 'interests', label: 'INTERESTS' },
-    // { id: 'hobbies', label: 'HOBBIES' },
-    // { id: 'certifications', label: 'CERTIFICATIONS' },
-    // { id: 'languages', label: 'LANGUAGES' }
 ];
 
 const socials = [
     { id: 'LinkedIn', link: 'https://www.linkedin.com/in/binitha-ann-j-18a9a1181/', icon: 'fab fa-linkedin' },
-    { id: 'GitHub', link: 'https://github.com/BiniJohn10', icon: 'fab fa-github' }
+    { id: 'GitHub', link: 'https://github.com/BiniJohn10', icon: 'fab fa-github' },
+    { id: 'Mail', link: 'mailto:binijoann@gmail.com', icon: 'fas fa-envelope' } // Changed icon prefix to "fas"
 ];
 
 const activeSection = ref('about');
@@ -285,7 +281,7 @@ onUnmounted(() => {
 }
 
 .sidebar {
-    min-width: 38%;
+    min-width: 45%;
     display: flex;
     flex-direction: column;
 }
@@ -323,10 +319,10 @@ onUnmounted(() => {
 
 .social-icons {
     display: flex;
-    padding-top: 20%;
+    margin-top: auto;
+    padding-bottom: 7rem;
     gap: 1rem;
     color: rgba(255, 255, 255, 0.85);
-
 }
 
 .social-icons a {

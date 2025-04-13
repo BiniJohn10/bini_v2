@@ -25,7 +25,6 @@ const props = defineProps({
     }
 });
 
-console.log('mobile prop:', props);
 const experience = [
     {
         company: 'Datamango',
