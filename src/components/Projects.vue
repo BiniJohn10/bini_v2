@@ -45,28 +45,28 @@ const props = defineProps({
 });
 const projects = [
   {
-      img: 'src/assets/projects/dm.jpg',
-      title: 'Datamango Website • Datamango',
-      description: 'Rebuilt the Datamango website using Nuxt and Tailwind CSS, enhancing user experience and responsiveness.',
-      link: 'https://datamango.io/',
+    img: '/assets/projects/dm.jpg',
+    title: 'Datamango Website • Datamango',
+    description: 'Rebuilt the Datamango website using Nuxt and Tailwind CSS, enhancing user experience and responsiveness.',
+    link: 'https://datamango.io/',
   },
   {
-      img: 'src/assets/projects/ArcoCyber.jpg',
-      title: 'Arco Cyber • Datamango',
-      description: 'Developed and implemented new features and cyber framework mappings, addressing pentest vulnerabilities. Conducted QA, fixed bugs, and optimized the codebase for enhanced security and performance. Utilized Vue 3, Vuex, Pinia, GraphQL, Node.js, and Hasura to improve functionality and user experience.',
-      link: 'https://platform.arcocyber.com/auth/register',
+    img: '/assets/projects/ArcoCyber.jpg',
+    title: 'Arco Cyber • Datamango',
+    description: 'Developed and implemented new features and cyber framework mappings, addressing pentest vulnerabilities...',
+    link: 'https://platform.arcocyber.com/auth/register',
   },
   {
-      img: 'src/assets/projects/triton.jpg',
-      title: 'Atlantis Swimming App • Datamango',
-      description: 'Designed, developed, and tested the Atlantis Swimming App, now ready for deployment on the App Store and Google Play. Built with Vue 3, Ionic, Capacitor, GraphQL, and Hasura, and integrated a Node.js server with an in-house subscription model and receipt validation. Completed in 5 months, with client feedback and testing via TestFlight and Android APK.',
-      link: 'https://play.google.com/store/apps/details?id=com.tritontraining.atlantis&hl=en_GB&pli=1',
+    img: '/assets/projects/triton.jpg',
+    title: 'Atlantis Swimming App • Datamango',
+    description: 'Designed, developed, and tested the Atlantis Swimming App, now ready for deployment on the App Store and Google Play. Built with Vue 3, Ionic, Capacitor, GraphQL, and Hasura, and integrated a Node.js server with an in-house subscription model and receipt validation. Completed in 5 months, with client feedback and testing via TestFlight and Android APK.',
+    link: 'https://play.google.com/store/apps/details?id=com.tritontraining.atlantis&hl=en_GB&pli=1',
   },
   {
-      img: 'src/assets/projects/smartSettings.jpg',
-      title: 'SmartSettings • Personal Project',
-      description: 'Developed a platform focused on the importance of security and privacy in smart home devices. The website features informative blogs, actionable insights, and step-by-step guides to help users secure popular smart home devices. Designed to empower non-tech-savvy users through clear, accessible guidance.',
-      link: 'https://smartsettings.netlify.app/',
+    img: '/assets/projects/smartSettings.jpg',
+    title: 'SmartSettings • Personal Project',
+    description: 'Developed a platform focused on the importance of security and privacy in smart home devices. The website features informative blogs, actionable insights, and step-by-step guides to help users secure popular smart home devices. Designed to empower non-tech-savvy users through clear, accessible guidance.',
+    link: 'https://smartsettings.netlify.app/',
   }
 ]
 </script>
