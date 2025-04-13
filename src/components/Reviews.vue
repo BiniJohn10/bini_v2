@@ -66,19 +66,19 @@ const rec = [
     recommendation: "I had the pleasure of working with Binitha when she joined us on a cybersecurity-focused internship during her master’s. She quickly proved herself as a talented and driven developer and we were able to take her on full-time. She handled complex dev tasks and contributed to client-facing work, and brought infectious enthusiasm to the team. Her passion for cybersecurity and ability to learn fast made her an invaluable asset. A real team player with a bright future ahead. Thanks Bini!",
     name: "Dave Westbrook",
     title: "Chief Operating Officer",
-    image: "src/assets/projects/datamango_logo.jpeg"
+    image: "/assets/projects/datamango_logo.jpeg"
   },
   {
     recommendation: "Binitha is a superb developer and cybersecurity expert. During our time together at Datamango, Binitha consistently demonstrated her technical ability and incredible capacity to learn new skills quickly. Technical expertise aside, Binitha is kind and exceptionally helpful - always willing to lend a hand and share knowledge, and approached every task with enthusiasm and a keen problem-solving attitude - an absolute pleasure to work with!",
     name: "Sam Packham",
     title: "Internal Operations & Support Manager",
-    image: "src/assets/projects/datamango_logo.jpeg"
+    image: "/assets/projects/datamango_logo.jpeg"
   },
   {
     recommendation: "Binitha is a talented developer who consistently delivers high-quality work. Her attention to detail and problem-solving skills are impressive.",
     name: "Camila",
     title: "Developer",
-    image: "src/assets/projects/datamango_logo.jpeg"  
+    image: "/assets/projects/datamango_logo.jpeg"  
   }
 ];
 
@@ -86,7 +86,6 @@ const flippedCards = ref(rec.map(() => false));
 
 
 const toggle = (index) => {
-  console.log('Toggling card at index:', index);
   flippedCards.value[index] = !flippedCards.value[index];
 };
 </script>
