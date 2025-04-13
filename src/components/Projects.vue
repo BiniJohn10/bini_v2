@@ -53,7 +53,7 @@ const projects = [
   {
     img: '/assets/projects/ArcoCyber.jpg',
     title: 'Arco Cyber • Datamango',
-    description: 'Developed and implemented new features and cyber framework mappings, addressing pentest vulnerabilities...',
+    description: 'Developed and implemented new features and cyber framework mappings, addressing pentest vulnerabilities. Conducted QA, fixed bugs, and optimized the codebase for enhanced security and performance. Utilized Vue 3, Vuex, Pinia, GraphQL, Node.js, and Hasura to improve functionality and user experience.',
     link: 'https://platform.arcocyber.com/auth/register',
   },
   {
