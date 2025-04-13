@@ -66,7 +66,7 @@ const projects = [
       img: 'src/assets/projects/smartSettings.jpg',
       title: 'SmartSettings • Personal Project',
       description: 'Developed a platform focused on the importance of security and privacy in smart home devices. The website features informative blogs, actionable insights, and step-by-step guides to help users secure popular smart home devices. Designed to empower non-tech-savvy users through clear, accessible guidance.',
-      link: 'https://binithajohn10.wixsite.com/smartsettings',
+      link: 'https://smartsettings.netlify.app/',
   }
 ]
 </script>
