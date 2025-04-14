@@ -9,9 +9,9 @@
             >
             <div class="text-white">
                 <div class="text-white flex items-center">
-                    <h1 class="font-bold lg:text-5xl sm:text-4xl name">Binitha John</h1>
+                    <h1 class="font-bold lg:text-6xl sm:text-5xl name">Binitha John</h1>
                 </div>
-            <p class=" lg:text-xl md:text-lg text-sm opacity-85 title">Front End Developer</p>
+            <p class=" 2xl:text-xl md:text-lg text-sm opacity-85 title pt-2">Developer & Cybersecurity Enthusiast</p>
             <span class="text-sm opacity-85 flex items-center country"> United Kingdom
                 <img src="/icons/location.svg" class="w-5 h-5 ml-1" alt="Location icon"/>
             </span>
@@ -81,9 +81,9 @@
             </p>
             
             </div>
-            <div v-if="showGif" class="doctor-who-gif">
+            <!-- <div v-if="showGif" class="doctor-who-gif">
                 <img src="/src/assets/docwho.gif" alt="Doctor Who Gif" />
-            </div>
+            </div> -->
             <section id="resume" class="pt-[5.6rem]" :ref="setSectionRef">
             <Experience />
             </section>
