@@ -108,8 +108,8 @@
             <!-- Logo/Name Area -->
             <div class="font-sans p-4">
                 <div class="text-white">
-                    <h1 class="font-bold text-4xl">Binitha John</h1>
-                    <p class="text-lg opacity-85">Front End Developer</p>
+                    <h1 class="font-bold text-5xl">Binitha John</h1>
+                    <p class="text-md opacity-85">Developer & Cybersecurity Enthusiast</p>
                     <span class="text-sm opacity-85 flex items-center"> United Kingdom
                         <img src="/icons/location.svg" class="w-5 h-5 ml-1" alt="Location icon"/>
                     </span>
