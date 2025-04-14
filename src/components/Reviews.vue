@@ -20,6 +20,7 @@
                 alt="Logo"
                 class="logo-image"
               />
+              <p class="text-lg font-bold">{{ item.name }}</p>
               <p class="card-title">{{ item.title }}</p>
             </div>
           </div>
@@ -127,7 +128,6 @@ const toggle = (index) => {
   color: rgba(255, 255, 255, 0.85);
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 

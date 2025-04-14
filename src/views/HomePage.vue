@@ -253,7 +253,8 @@ onBeforeUnmount(() => {
 
 const handleSidebarScroll = (e) => {
     if (mainContent.value) {
-        const scrollSpeedFactor = 6;
+        const sidebar = e.currentTarget;
+        const scrollSpeedFactor = mainContent.value.scrollHeight / sidebar.scrollHeight;
         mainContent.value.scrollTop += e.deltaY * scrollSpeedFactor;
     }
     e.preventDefault();
