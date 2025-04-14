@@ -3,14 +3,14 @@
     <div v-for="(item, index) in projects" :key="index" class="content font-sans">
       
       <a :href="item.link" target="_blank" class="grid grid-cols-4 gap-4 hover:text-b-teal-100 hover:cursor-pointer hover:opacity-100 project-img">
-          <img class="text-sm leading-6 col-span-1 w-42 h-28 pt-2" :src="item.img" /> 
+          <img class="text-sm leading-6 col-span-1 w-42 h-28 2xl:w-[200px] 2xl:h-[130px] pt-2" :src="item.img" /> 
           <div class="leading-6 col-span-3 pt-0">
               <div class="flex items-center space-x-2">
-                  <p class="text-lg font-semibold">{{ item.title }}</p>
+                  <p class="font-semibold title">{{ item.title }}</p>
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                   <path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h14v-7h2v7q0 .825-.587 1.413T19 21zm4.7-5.3l-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"/></svg>
               </div>
-              <p class="text-sm text-white opacity-85">{{ item.description }}</p>
+              <p class="description text-white opacity-85">{{ item.description }}</p>
           </div>
         </a>
     </div>
@@ -74,11 +74,18 @@ const projects = [
 <style scoped>
 .content {
   line-height: 1.8;
-  font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.85);
   padding: 4%;
   padding-top: 20pt;
   padding-bottom: 20pt;
+}
+
+.title{
+  font-size: 1.1rem;
+}
+
+.description{
+  font-size: 0.9rem;
 }
 
 .content:hover {
@@ -108,5 +115,15 @@ const projects = [
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.85);
     padding-bottom: 2rem;
+}
+
+@media (min-width: 2048px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .description{
+        font-size: 1.1rem;
+    }
 }
 </style>

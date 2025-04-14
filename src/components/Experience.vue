@@ -1,9 +1,9 @@
 <template>
     <div v-if="!props.mobile" class="">
         <div v-for="(item, index) in experience" :key="index" class="content font-sans">
-            <p class="text-sm">{{ item.date }}</p>
-            <h3 class="font-semibold ">{{ item.title }} | <span class="">{{ item.company }}</span></h3>
-            <p class="text-sm leading-6">{{ item.description }}</p>
+            <p class="date">{{ item.date }}</p>
+            <h3 class="font-semibold title">{{ item.title }} | <span class="">{{ item.company }}</span></h3>
+            <p class="leading-6 description">{{ item.description }}</p>
         </div>
     </div>
     <div v-else class="">
@@ -56,7 +56,6 @@ const experience = [
 <style scoped>
 .content {
     line-height: 1.8;
-    font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.85);
     padding: 4%;
     padding-top: 20pt;
@@ -80,5 +79,31 @@ const experience = [
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.85);
     padding-bottom: 2rem;
+}
+
+.date {
+    font-size: 0.9rem;
+}
+
+.title {
+    font-size: 1.1rem;
+}
+
+.description{
+    font-size: 0.9rem;
+}
+
+@media (min-width: 2048px) {
+    .date {
+        font-size: 1.2rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .description{
+        font-size: 1.1rem;
+    }
 }
 </style>

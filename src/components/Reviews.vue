@@ -172,4 +172,10 @@ const toggle = (index) => {
   border-radius: 8pt;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
+
+@media (min-width: 2048px) {
+    .content {
+        font-size: 1.3rem;
+    }
+}
 </style>

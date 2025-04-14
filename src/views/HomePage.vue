@@ -1,10 +1,18 @@
 <template>
     <div v-if="!mobile" class="layout">
-        <div class="sidebar font-sans lg:pl-40 pt-28 pl-28" @wheel="handleSidebarScroll">
+        <div
+            class="sidebar font-sans lg:pl-40 pt-28 pl-28"
+            @wheel="handleSidebarScroll"
+            @touchstart="handleTouchStart"
+            @touchmove="handleTouchMove"
+            @touchend="handleTouchEnd"
+            >
             <div class="text-white">
-            <h1 class="font-bold lg:text-5xl md:text-4xl text-3xl">Binitha John</h1>
-            <p class="lg:text-xl md:text-lg text-sm opacity-85">Front End Developer</p>
-            <span class="text-sm opacity-85 flex items-center"> United Kingdom
+                <div class="text-white flex items-center">
+                    <h1 class="font-bold lg:text-5xl sm:text-4xl name">Binitha John</h1>
+                </div>
+            <p class=" lg:text-xl md:text-lg text-sm opacity-85 title">Front End Developer</p>
+            <span class="text-sm opacity-85 flex items-center country"> United Kingdom
                 <img src="/icons/location.svg" class="w-5 h-5 ml-1" alt="Location icon"/>
             </span>
         </div>
@@ -191,15 +199,6 @@ const mobile = ref(false);
 const mobileNav = ref(false);
 const hasScrolled = ref(false);
 
-const toggleMobileNav = () => {
-    mobileNav.value = !mobileNav.value;
-};
-
-const handleMobileTabClick = (tab) => {
-    handleTabClick(tab);
-    mobileNav.value = false;
-};
-
 const checkScreen = () => {
     mobile.value = window.innerWidth <= 768;
 };
@@ -219,7 +218,7 @@ const sections = [
 const socials = [
     { id: 'LinkedIn', link: 'https://www.linkedin.com/in/binitha-ann-j-18a9a1181/', icon: 'fab fa-linkedin' },
     { id: 'GitHub', link: 'https://github.com/BiniJohn10', icon: 'fab fa-github' },
-    { id: 'Mail', link: 'mailto:binijoann@gmail.com', icon: 'fas fa-envelope' } // Changed icon prefix to "fas"
+    { id: 'Mail', link: 'mailto:binijoann@gmail.com', icon: 'fas fa-envelope' }
 ];
 
 const activeSection = ref('about');
@@ -259,6 +258,30 @@ const handleSidebarScroll = (e) => {
     }
     e.preventDefault();
 };
+
+let touchStartY = 0;
+let touchCurrentY = 0;
+
+const handleTouchStart = (e) => {
+  touchStartY = e.touches[0].clientY;
+};
+
+const handleTouchMove = (e) => {
+  touchCurrentY = e.touches[0].clientY;
+  const deltaY = touchStartY - touchCurrentY;
+
+  if (mainContent.value) {
+      mainContent.value.scrollTop += deltaY * 20;
+  }
+  touchStartY = touchCurrentY;
+  e.preventDefault();
+};
+
+const handleTouchEnd = (e) => {
+  touchStartY = 0;
+  touchCurrentY = 0;
+};
+
 
 onMounted(() => {
     checkScreen();
@@ -360,6 +383,24 @@ onUnmounted(() => {
     }
 }
 
+@media (min-width: 2048px) {
+    .layout{
+        font-size: 1.2rem;
+    }
+    .content-section p {
+        font-size: 1.4rem;
+    }
+    .name{
+        font-size: 4rem;
+    }
+    .title {
+        font-size: 1.5rem;
+    }
+    .country{
+        font-size: 1.2rem;
+    }
+}
+
 .content-section strong {
     color: #ffffff;
 }
@@ -415,7 +456,7 @@ onUnmounted(() => {
 .doctor-who-gif {
     position: absolute; /* Position it absolutely to control the placement */
     top: 6rem; /* Adjust the position as needed */
-    left: 25%;
+    left: 20%;
     transform: translateX(50%);
     opacity: 1;
     transition: opacity 0.3s ease;  /* Fade-in effect */
@@ -425,8 +466,4 @@ onUnmounted(() => {
     max-width: 100px; /* Adjust the size of the gif */
 }
 
-/* When hover, show the gif */
-.doctor-who-gif img {
-    opacity: 1;
-}
 </style>
