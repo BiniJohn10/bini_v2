@@ -96,6 +96,7 @@ const toggle = (index) => {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
+  padding: 4%;
 }
 
 .flip-card {

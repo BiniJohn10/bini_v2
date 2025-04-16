@@ -99,6 +99,11 @@
             <section id="review" class="pt-[5.6rem]" :ref="setSectionRef">
                 <Review/>
             </section>
+
+            <div class="group pb-[3rem] pl-[4%] pr-[4%] cursor-pointer" @click="goTo('blogs')">
+                <span class="font-semibold text-lg transition-all group-hover:underline">Blog posts</span>
+                <span class="transition-all duration-300 group-hover:ml-2"> → </span>
+            </div>
         </main>
     </div>
 
@@ -179,6 +184,11 @@
                     <section id="review" :ref="setSectionRef">
                         <Review :mobile="true"/>
                     </section>
+
+                    <div class="" @click="goTo('blogs')">
+                        <span class="font-semibold text-xl">Blog posts</span>
+                        <span> → </span>
+                    </div>
                 </main>
 
                 </div>
@@ -193,11 +203,19 @@ import Experience from '../components/Experience.vue';
 import Projects from '../components/Projects.vue';
 import Skills from '../components/Skills.vue';
 import Review from '../components/Reviews.vue';
+import Blogs from './Blogs.vue';
+
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
 const showGif = ref(false);
 const mobile = ref(false);
 const mobileNav = ref(false);
 const hasScrolled = ref(false);
+
+const goTo = (section) => {
+    router.push({ path: `/${section}` });
+};
 
 const checkScreen = () => {
     mobile.value = window.innerWidth <= 768;
@@ -213,6 +231,7 @@ const sections = [
     { id: 'projects', label: 'PROJECTS', icon: '/icons/location.svg' },
     { id: 'skills', label: 'SKILLS', icon: '/icons/location.svg' },
     { id: 'review', label: 'REVIEWS', icon: '/icons/location.svg' },
+    // { id: 'blogs', label: 'BLOGS', icon: '/icons/location.svg' }
 ];
 
 const socials = [

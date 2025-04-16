@@ -1,9 +1,13 @@
 <template>
   <div v-if="!props.mobile">
-    <div v-for="(item, index) in projects" :key="index" class="content font-sans">
+    <div v-for="(item, index) in projects" :key="index" class="content font-sans" 
+            :class="{ 'dimmed': hoveredIndex !== null && hoveredIndex !== index }"
+            @mouseover="hoveredIndex = index"
+            @mouseleave="hoveredIndex = null"
+            >
       
       <a :href="item.link" target="_blank" class="grid grid-cols-4 gap-4 hover:text-b-teal-100 hover:cursor-pointer hover:opacity-100 project-img">
-          <img class="text-sm leading-6 col-span-1 w-42 h-28 2xl:w-[200px] 2xl:h-[130px] pt-2" :src="item.img" /> 
+          <img class="text-sm leading-6 col-span-1 w-42 h-28 2xl:w-[200px] 2xl:h-[100px] pt-2" :src="item.img" /> 
           <div class="leading-6 col-span-3 pt-0">
               <div class="flex items-center space-x-2">
                   <p class="font-semibold title">{{ item.title }}</p>
@@ -37,6 +41,9 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+const hoveredIndex = ref(null);
+
 const props = defineProps({
     mobile: {
         type: Boolean,
@@ -73,11 +80,16 @@ const projects = [
 
 <style scoped>
 .content {
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 4%;
-  padding-top: 20pt;
-  padding-bottom: 20pt;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 4%;
+    padding-top: 20pt;
+    padding-bottom: 20pt;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dimmed {
+    opacity: 0.50;
 }
 
 .title{

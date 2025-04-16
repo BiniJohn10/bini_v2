@@ -1,6 +1,13 @@
 <template>
     <div v-if="!props.mobile" class="">
-        <div v-for="(item, index) in experience" :key="index" class="content font-sans">
+        <div 
+            v-for="(item, index) in experience" 
+            :key="index" 
+            class="content font-sans"
+            :class="{ 'dimmed': hoveredIndex !== null && hoveredIndex !== index }"
+            @mouseover="hoveredIndex = index"
+            @mouseleave="hoveredIndex = null"
+        >
             <p class="date">{{ item.date }}</p>
             <h3 class="font-semibold title">{{ item.title }} | <span class="">{{ item.company }}</span></h3>
             <p class="leading-6 description">{{ item.description }}</p>
@@ -42,7 +49,7 @@ const experience = [
         company: 'University of Nottingham',
         title: 'MSc Computer Science with Cyberphysical Systems - Student',
         date: '2021 - 2023',
-        description: 'Completed coursework and research focused on cybersecurity.'
+        description: 'Completed coursework and research focused on End-User Perspective of Privacy And Security Controls in Smart Home Devices .'
     },
     {
         company: 'ITC Infotech, India',
@@ -51,6 +58,9 @@ const experience = [
         description: 'Designed and tested digital platforms for US-based clients, resulting in a 25% improvement in development efficiency. Optimised debugging processes to reduce issue resolution time by 50%. Ensured secure and accurate data handling using Microsoft 365 and SQL. Maintained consistent and effective communication with clients, contributing to a 15% enhancement in project implementation timelines.'
     }
 ];
+
+import { ref } from 'vue';
+const hoveredIndex = ref(null);
 </script>
 
 <style scoped>
@@ -60,7 +70,7 @@ const experience = [
     padding: 4%;
     padding-top: 20pt;
     padding-bottom: 20pt;
-
+    transition: opacity 0.3s ease-in-out;
 }
 
 .content:hover{
@@ -91,6 +101,10 @@ const experience = [
 
 .description{
     font-size: 0.9rem;
+}
+
+.dimmed {
+    opacity: 0.50;
 }
 
 @media (min-width: 2048px) {
