@@ -11,10 +11,7 @@
                 <div class="text-white flex items-center">
                     <h1 class="font-bold lg:text-6xl sm:text-5xl name">Binitha John</h1>
                 </div>
-            <p class=" 2xl:text-xl md:text-lg text-sm opacity-85 title pt-2">Developer & Cybersecurity Enthusiast</p>
-            <span class="text-sm opacity-85 flex items-center country"> United Kingdom
-                <img src="/icons/location.svg" class="w-5 h-5 ml-1" alt="Location icon"/>
-            </span>
+            <p class=" 2xl:text-xl md:text-lg text-sm opacity-85 title pt-2">Developer & Cybersecurity Enthusiast✨</p>
         </div>
     
             <div class="nav pt-20">
@@ -114,10 +111,7 @@
             <div class="font-sans p-4">
                 <div class="text-white">
                     <h1 class="font-bold text-5xl">Binitha John</h1>
-                    <p class="text-md opacity-85">Developer & Cybersecurity Enthusiast</p>
-                    <span class="text-sm opacity-85 flex items-center"> United Kingdom
-                        <img src="/icons/location.svg" class="w-5 h-5 ml-1" alt="Location icon"/>
-                    </span>
+                    <p class="text-md opacity-85">Developer & Cybersecurity Enthusiast✨</p>
 
                     <div class="flex gap-4 my-8 text-white opacity-85">
                         <div v-for="social in socials" :key="social.id">
