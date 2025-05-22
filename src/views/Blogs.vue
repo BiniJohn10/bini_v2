@@ -35,7 +35,7 @@ const projects = [
             img: '/assets/Blogs/dm.jpg',
             title: 'Enhance Your Cyber Security: Why A Human-Centric Approach Is Important',
             year: '2023',
-            link: 'https://datamango.io/news/enhance-your-cyber-security-why-a-human-centric-approach-is-important',
+            link: 'https://datamango.io/insights/enhance-your-cyber-security-why-a-human-centric-approach-is-important',
       },
       {
             img: '/assets/Blogs/lock.png',
